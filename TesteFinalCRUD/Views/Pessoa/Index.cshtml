@@ -1,0 +1,52 @@
+﻿@model IEnumerable<TesteFinalCRUD.ViewModel.PessoaViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Pessoas Cadastradas</h2>
+
+<p>
+    @Html.ActionLink("Cadastrar Pessoa", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Nome
+        </th>
+        <th>
+            CPF:
+        </th>
+        <th>
+            Sexo:
+        </th>
+        <th>
+            Data de nascimento
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nmPessoa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pessoaCPF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descricaoSexo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dtnascimento)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.idPessoa }) |
+            @Html.ActionLink("Detalhar", "Details", new { id=item.idPessoa }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.idPessoa })
+        </td>
+    </tr>
+}
+
+</table>
